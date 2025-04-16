@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS ecommerce;
 CREATE DATABASE ecommerce ;
 USE ecommerce;
-CREATE TABLE cliente (
+CREATE TABLE CLIENTES (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   telefono INT,
   dni INT,
@@ -11,7 +11,7 @@ CREATE TABLE cliente (
   nacimiento DATE,
   fecha_de_alta DATE
 );
-CREATE TABLE producto (
+CREATE TABLE PRODUCTOS (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   precio INT,
   stock INT,
@@ -20,19 +20,19 @@ CREATE TABLE producto (
   caracteristicas VARCHAR(100),
   fecha_caducidad DATE
 );
-CREATE TABLE carrito (
+CREATE TABLE CARRITOS (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   id_producto INT UNSIGNED  NOT NULL,
-  FOREIGN KEY (id_producto) REFERENCES producto(id),
+  FOREIGN KEY (id_producto) REFERENCES PRODUCTOS(id),
   cantidad INT,
   valor_total INT
 );
-CREATE TABLE pedido (
+CREATE TABLE PEDIDOS (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   id_cliente INT UNSIGNED  NOT NULL,
   id_carrito INT UNSIGNED  NOT NULL,
-  FOREIGN KEY (id_cliente) REFERENCES cliente(id),
-  FOREIGN KEY (id_carrito) REFERENCES carrito(id),
+  FOREIGN KEY (id_cliente) REFERENCES CLIENTES(id),
+  FOREIGN KEY (id_carrito) REFERENCES CARRITOS(id),
   observaciones VARCHAR(100),
   medio_de_pago VARCHAR(100) NOT NULL,
   fecha_pedido DATE
