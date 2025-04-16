@@ -9,7 +9,7 @@ CREATE TABLE CLIENTES (
   direccion VARCHAR(100),
   email VARCHAR(100) NOT NULL,
   nacimiento DATE,
-  fecha_de_alta DATE
+  fecha_alta DATE
 );
 CREATE TABLE PRODUCTOS (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -34,6 +34,6 @@ CREATE TABLE PEDIDOS (
   FOREIGN KEY (id_cliente) REFERENCES CLIENTES(id),
   FOREIGN KEY (id_carrito) REFERENCES CARRITOS(id),
   observaciones VARCHAR(100),
-  medio_de_pago VARCHAR(100) NOT NULL,
+  medio_pago VARCHAR(100) NOT NULL,
   fecha_pedido DATE
 );
