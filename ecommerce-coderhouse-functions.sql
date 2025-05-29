@@ -22,3 +22,26 @@ END $$
 DELIMITER ;
 
 SELECT calcular_valor_total_cliente(1);
+
+
+-- funcion para obtener el nombre de un cliente por su id
+DELIMITER $$
+
+CREATE FUNCTION obtener_nombre_por_id(id_cliente INT)
+RETURNS VARCHAR(100)
+DETERMINISTIC
+READS SQL DATA
+BEGIN
+  DECLARE nombre_cliente VARCHAR(100);
+
+  SELECT nombre INTO nombre_cliente
+  FROM clientes
+  WHERE id = id_cliente;
+
+  RETURN nombre_cliente;
+END$$
+
+DELIMITER ;
+
+SELECT obtener_nombre_por_id(2);
+

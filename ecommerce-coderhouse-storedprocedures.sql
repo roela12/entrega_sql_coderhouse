@@ -15,3 +15,17 @@ END $$
 DELIMITER ;
 
 CALL actualizar_valor_total_carritos(1);
+
+--procedimieinto para buscar un cliente por su nombre
+DELIMITER $$
+
+CREATE PROCEDURE buscar_cliente_por_nombre(IN nombre_cliente VARCHAR(100))
+BEGIN
+  SELECT * 
+  FROM clientes
+  WHERE nombre LIKE CONCAT('%', nombre_cliente, '%');
+END$$
+
+DELIMITER ;
+
+CALL buscar_cliente_por_nombre('Raul');
