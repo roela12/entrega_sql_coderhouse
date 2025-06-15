@@ -16,7 +16,7 @@ DELIMITER ;
 
 CALL actualizar_valor_total_carritos(1);
 
---procedimieinto para buscar un cliente por su nombre
+-- procedimieinto para buscar un cliente por su nombre
 DELIMITER $$
 
 CREATE PROCEDURE buscar_cliente_por_nombre(IN nombre_cliente VARCHAR(100))
@@ -28,4 +28,4 @@ END$$
 
 DELIMITER ;
 
-CALL buscar_cliente_por_nombre('Raul');
+CALL buscar_cliente_por_nombre('Juan');

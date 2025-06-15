@@ -44,4 +44,3 @@ END$$
 DELIMITER ;
 
 SELECT obtener_nombre_por_id(2);
-
